@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+public:
+    int studentID;
+    string name;
+    float marks[5];
+
+    float calculateAverage() {
+        float sum = 0;
+        for (int i = 0; i < 5; i++) {
+            sum += marks[i];
+        }
+        return sum / 5;
+    }
+
+    void displayDetails() {
+        cout << "Student ID: " << studentID << endl;
+        cout << "Name: " << name << endl;
+        cout << "Average Marks: " << calculateAverage() << endl;
+    }
+};
+
+int main() {
+    int n;
+    cin >> n;
+    Student students[n];
+    for (int i = 0; i < n; i++) {
+        cin >> students[i].studentID >> students[i].name;
+        for (int j = 0; j < 5; j++) {
+            cin >> students[i].marks[j];
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        students[i].displayDetails();
+    }
+    return 0;
+}
